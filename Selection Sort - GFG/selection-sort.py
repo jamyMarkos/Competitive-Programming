@@ -3,7 +3,6 @@
 class Solution: 
     def select(self, arr, i):
         return arr[i]
-           
     
     def selectionSort(self, arr,n):
         for i in range(len(arr)):
