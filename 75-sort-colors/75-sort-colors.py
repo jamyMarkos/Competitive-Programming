@@ -1,14 +1,5 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        # count = [0] * 3
-        # for color in nums:
-        #     count[color] += 1
-        # track = 0
-        # for i in range(len(count)):
-        #     for j in range(count[i]):
-        #         if track < len(nums):
-        #             nums[track] = i
-        #         track += 1
         count = [0] * 3
         for i in range(len(nums)):
             count[nums[i]] += 1
