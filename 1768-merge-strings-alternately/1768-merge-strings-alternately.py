@@ -1,14 +1,17 @@
 class Solution:
     def mergeAlternately(self, word1: str, word2: str) -> str:
-        # Using two pointers         
-        ptr1, ptr2 = 0, 0
-        str_ = ''
-        while ptr1 < len(word1) and ptr2 < len(word2):
-            str_ += (word1[ptr1] + word2[ptr2])
-            ptr1, ptr2 = ptr1 + 1, ptr2 + 1
-            
-        return str_ + word1[ptr1:] + word2[ptr2:]
-            
+        word1 = deque(word1)
+        word2 = deque(word2)
+        
+        res = ''
+        
+        while word1 or word2:
+            if word1:
+                res += word1.popleft()
+            if word2:
+                res += word2.popleft()
+                
+        return res
             
             
             
