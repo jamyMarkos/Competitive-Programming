@@ -3,8 +3,15 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        for i in range(len(nums)):
-            for j in range(len(nums) - 1):
-                if nums[j] > nums[j+1]:
-                    nums[j], nums[j+1] = nums[j+1], nums[j]
+        freqArr = [0] * 3
+        for el in nums:
+            freqArr[el] += 1
+        k = 0    
+        for i in range(3):
+            j = 0
+            while j < freqArr[i]:
+                nums[k] = i
+                j += 1
+                k += 1
+                
         
