@@ -1,10 +1,10 @@
 class Solution:
-    def invert(self, arr: List[int], left: int, right: int) -> None:
+#     def invert(self, arr: List[int], left: int, right: int) -> None:
         
-        while left < right:
-            arr[left], arr[right] = arr[right], arr[left]
-            left += 1
-            right -= 1
+#         while left < right:
+#             arr[left], arr[right] = arr[right], arr[left]
+#             left += 1
+#             right -= 1
             
     def pancakeSort(self, arr: List[int]) -> List[int]:
         res = []
