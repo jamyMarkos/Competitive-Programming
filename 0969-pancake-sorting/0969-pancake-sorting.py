@@ -20,9 +20,12 @@ class Solution:
             
             if max_idx != right:
                 # self.invert(arr, 0, max_idx)
-                arr[:max_idx+1] = reversed(arr[:max_idx+1])
+                # arr[:max_idx+1] = reversed(arr[:max_idx+1])
+                arr[:max_idx+1] = arr[:max_idx+1][::-1]
+                
                 # self.invert(arr, 0, right)
-                arr[:right+1] = reversed(arr[:right+1])
+                # arr[:right+1] = reversed(arr[:right+1])
+                arr[:right+1] = arr[:right+1][::-1]
                 res.append(max_idx+1)
                 res.append(right+1)
 
