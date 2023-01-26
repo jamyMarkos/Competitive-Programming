@@ -3,17 +3,19 @@ class Solution:
         res = []
         skill.sort()
         left, right = 0, len(skill) - 1
+        chemistry = 0
         sum_ = skill[left] + skill[right]
         while left < right:
             if skill[left] + skill[right] != sum_:
                 return -1
-            res.append([skill[left], skill[right]])
+            chemistry += (skill[left] * skill[right])
+            # res.append([skill[left], skill[right]])
             left += 1
             right -= 1
             
-        chemistry = 0
-        for pair in res:
-            chemistry += (pair[0] * pair[1])
+        # chemistry = 0
+        # for pair in res:
+        #     chemistry += (pair[0] * pair[1])
         return chemistry
             
             
