@@ -1,32 +1,27 @@
 class Solution:
     def productExceptSelf(self, nums: List[int]) -> List[int]:
-        num_len = len(nums)
-        forward = [1]
-        backward = [1]
+        product = 1
+        defdict = defaultdict(int)
         res = []
         
-        
-        for i in range(num_len):
-            forward.append(forward[-1] * nums[i])
-        
-        tmp = nums[::-1]
-        
-        for i in range(num_len):
-            backward.append(backward[-1] * tmp[i])
-        backward.reverse()
-        
-        for i in range(num_len):
-            res.append(forward[i] * backward[i+1])
-            
+        for num in nums:
+            if num:
+                product *= num
+            else:
+                defdict[num] += 1
+                
+        for i in range(len(nums)):
+            if nums[i] != 0 and defdict[0] > 0:
+                res.append(0)
+            elif nums[i] == 0:
+                defdict[0] -= 1
+                if defdict[0] > 0:
+                    res.append(0)
+                else:
+                    res.append(product)
+                defdict[0] += 1
+            elif nums[i] != 0 and defdict[0] == 0:
+                res.append(product // nums[i])
+                
         return res
-            
-            
-            
-        
-        
-        
-            
-            
-        
-            
-        
+                
