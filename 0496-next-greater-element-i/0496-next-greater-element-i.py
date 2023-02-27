@@ -1,20 +1,30 @@
 class Solution:
     def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
-        hashTable = {}
-        for idx, el in enumerate(nums2):
-            hashTable[el] = idx
+        monoStack = []
+        
+        hashTable = dict()
+        
+        for num in nums2:
+            if not monoStack or monoStack[-1] > num:
+                monoStack.append(num)
+            else:
+                '''
+                [1,2,3,4]
+                '''
+                while monoStack and monoStack[-1] < num:
+                    hashTable[monoStack.pop()] = num
+                monoStack.append(num)
+                    
+        print(hashTable)
+                    
         res = []
-        for el in nums1:
-            found = False
-            start = hashTable[el] + 1
-            while start < len(nums2):
-                if nums2[start] > el:
-                    res.append(nums2[start])
-                    found = True
-                    break
-                start += 1
-            if not found:
+        for num in nums1:
+            if num in hashTable:
+                res.append(hashTable[num])
+            else:
                 res.append(-1)
+            
         return res
         
+                
         
