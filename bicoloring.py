@@ -5,6 +5,7 @@ def solve():
     while True:
         n = int(input())
         if not n:
+            input()
             return
 
         l = int(input())
