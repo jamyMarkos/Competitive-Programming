@@ -7,10 +7,7 @@ class Solution:
                 return 0
             if idx in memo:
                 return memo[idx]
-
-            solved = dp(idx + q[idx][1] + 1)
-            not_solved = dp(idx + 1)
-            memo[idx] = max(solved + q[idx][0], not_solved)
+            memo[idx] = max(dp(idx + q[idx][1] + 1) + q[idx][0], dp(idx + 1))
             return memo[idx]
 
         return dp(0)
